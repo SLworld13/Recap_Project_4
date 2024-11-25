@@ -9,3 +9,21 @@
   background: black;
   color: white;
 }
+
+h4 {
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Flexibles Layout mit mehreren Spalten */
+  gap: 20px;
+  padding: 20px;
+}
