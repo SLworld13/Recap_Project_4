@@ -1,4 +1,4 @@
-.color-card {
+.color-car {
   margin: 0px 10px;
   padding: 5px;
 }
@@ -74,4 +74,58 @@ p {
   font-size: 1.5em;
   margin-top: 20px;
   font-weight: bold;
+}
+
+.edit-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: rgb(53, 50, 50);
+}
+.edit-button:active {
+  transform: scale(0.95);
+}
+
+.cancel-update-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-update-button:hover {
+  background-color: rgb(53, 50, 50);
+}
+.cancel-update-button:active {
+  transform: scale(0.95);
+}
+
+.update-color {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-color:hover {
+  background-color: rgb(53, 50, 50);
+}
+.update-color:active {
+  transform: scale(0.95);
 }

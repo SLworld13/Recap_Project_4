@@ -1,30 +1,38 @@
-import { useState } from "react";
-import ColorInput from "../ColorInput";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 
-export default function ColorForm({ addColor }) {
+export default function ColorForm({ addColor, defaultValues, onCancel }) {
   const [role, setRole] = useState("");
   const [hex, setHex] = useState("#ff0000");
   const [contrastText, setContrastText] = useState("#ffffff");
 
+  // Wenn Farben zum Bearbeiten übergeben werden, setzt die felder auf die aktuellen Werte
+  useEffect(() => {
+    if (defaultValues) {
+      setRole(defaultValues.role);
+      setHex(defaultValues.hex);
+      setContrastText(defaultValues.contrastText);
+    }
+  }, [defaultValues]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newColor = {
-      id: nanoid(),
+    const updatedColor = {
+      id: defaultValues?.id || nanoid(), // Falls es sich um ein neues Color handelt, ID generieren
       role,
       hex,
       contrastText,
     };
 
-    addColor(newColor);
-    setRole("");
+    addColor(updatedColor); // Übergib die aktualisierte Farbe an die App
+    setRole(""); // Zurücksetzen der Eingabewerte
     setHex("#ff0000");
     setContrastText("#ffffff");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="color-form">
       <label>
         Role:
         <input
@@ -34,14 +42,43 @@ export default function ColorForm({ addColor }) {
         />
       </label>
       <label>
-        Hex Color:
-        <ColorInput value={hex} onChange={setHex} />
+        Hex:
+        <input
+          type="color"
+          value={hex}
+          onChange={(e) => setHex(e.target.value)}
+        />
+        <input
+          type="text"
+          value={hex}
+          onChange={(e) => setHex(e.target.value)}
+        />
       </label>
       <label>
-        Contrast Text:
-        <ColorInput value={contrastText} onChange={setContrastText} />
+        Kontrast-Text:
+        <input
+          type="color"
+          value={contrastText}
+          onChange={(e) => setContrastText(e.target.value)}
+        />
+        <input
+          type="text"
+          value={contrastText}
+          onChange={(e) => setContrastText(e.target.value)}
+        />
       </label>
-      <button type="submit">ADD COLOR</button>
+      <button className="update-color" type="submit">
+        {defaultValues ? "Update color" : "Add color"}
+      </button>
+      {defaultValues && (
+        <button
+          className="cancel-update-button"
+          type="button"
+          onClick={onCancel}
+        >
+          Cancel
+        </button>
+      )}
     </form>
   );
 }
