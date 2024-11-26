@@ -39,9 +39,32 @@ p {
 }
 
 .delete-button:hover {
-  background-color: darkred;
+  background-color: rgb(53, 50, 50);
 }
 
 .delete-button:active {
+  transform: scale(0.95);
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.color-card-highlight {
+  font-weight: bold;
+  color: black;
+}
+
+.cancel {
+  background-color: gray;
+}
+
+.cancel:hover {
+  background-color: darkgray;
+}
+
+.cancel:active {
   transform: scale(0.95);
 }
