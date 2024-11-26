@@ -41,7 +41,6 @@ p {
 .delete-button:hover {
   background-color: rgb(53, 50, 50);
 }
-
 .delete-button:active {
   transform: scale(0.95);
 }
@@ -67,4 +66,12 @@ p {
 
 .cancel:active {
   transform: scale(0.95);
+}
+
+.no-colors {
+  text-align: center;
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 20px;
+  font-weight: bold;
 }

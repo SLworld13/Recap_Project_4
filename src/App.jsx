@@ -19,11 +19,17 @@ export default function App() {
     <div className="App">
       <h1>Theme Creator</h1>
       <ColorForm addColor={addColor} />
-      <div className="colors-grid">
-        {colors.map((color) => (
-          <Color key={color.id} color={color} onDelete={deleteColor} />
-        ))}
-      </div>
+
+      {/* Nachricht wenn keine Farben mehr da sind */}
+      {colors.length === 0 ? (
+        <p className="no-colors">No colors left. Please add some new colors!</p>
+      ) : (
+        <div className="colors-grid">
+          {colors.map((color) => (
+            <Color key={color.id} color={color} onDelete={deleteColor} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
